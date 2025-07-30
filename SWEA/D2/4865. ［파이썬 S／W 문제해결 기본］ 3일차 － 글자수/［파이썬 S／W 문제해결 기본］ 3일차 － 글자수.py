@@ -9,7 +9,8 @@ for i in range(1, t + 1):
     count_lst = list()
     
     # str1 알파벳 비교
-    for j in str1:
+    # set()으로 중복 제거
+    for j in set(str1):
         # 개수 카운트
         match = str2.count(j)
         count_lst.append(match)
