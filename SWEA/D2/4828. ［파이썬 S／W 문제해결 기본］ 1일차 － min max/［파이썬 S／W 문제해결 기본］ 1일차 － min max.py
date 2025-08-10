@@ -1,16 +1,18 @@
+def min_max(lst):
+    min_val = float('inf')
+    max_val = float('-inf')
+    for i in lst:
+        if min_val > i:
+            min_val = i
+        if max_val < i:
+            max_val = i
+    return max_val - min_val
+
+
 T = int(input())
-
-for case in range(1, T + 1):
+for tc in range(1, T + 1):
     N = int(input())
-    ai = list(map(int, input().split()))
-
-    max_value = ai[0]
-    min_value = ai[0]
-    for i in range(N):
-        if ai[i] > max_value:
-            max_value = ai[i]
-        if ai[i] < min_value:
-            min_value = ai[i]
-
-    result = max_value - min_value
-    print(f'#{case} {result}')
+    arr = list(map(int, input().split()))
+    
+    result = min_max(arr)
+    print(f'#{tc} {result}')
