@@ -1,10 +1,10 @@
+# 문자열 반복
 T = int(input())
+for tc in range(T):
+    r, word = input().split()
 
-for i in range(T):
-    Repeat, S = input().split()
-    Repeat = int(Repeat)
+    r_word = []
+    for i in range(len(word)):
+        r_word.append(word[i] * int(r))
 
-    S_list = list(map(str, str(S)))
-    for j in range(len(S_list)):
-        print(S_list[j] * Repeat, end = "")
-    print("")
+    print(*r_word, sep='')
