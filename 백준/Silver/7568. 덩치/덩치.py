@@ -8,7 +8,9 @@ for _ in range(N):
 rank = []
 count = 1
 
+# 맨 앞 요소 뒤로 보내는 반복문
 for i in range(N):
+    # 각 요소들을 비교하는 반복문
     for j in range(N - 1):
         if physical[0][0] < physical[j + 1][0] and physical[0][1] < physical[j + 1][1]:
             count += 1
