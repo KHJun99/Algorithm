@@ -1,15 +1,15 @@
-# 설탕 배달
-
-sugar = int(input())
+N = int(input())
 
 bag = 0
-while sugar >= 0:
-    if sugar % 5 == 0:
-        bag += (sugar // 5)
-        print(bag)
+while True:
+    if N % 5 == 0:
+        bag += N // 5
         break
-    sugar -= 3
-    bag += 1
+    else:
+        N -= 3
+        bag += 1
+        if N < 0:
+            bag = -1
+            break
 
-else:
-    print(-1)
+print(bag)
