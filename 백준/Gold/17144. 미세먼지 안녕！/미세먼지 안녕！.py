@@ -24,59 +24,59 @@
 - 방의 정보가 주어졌을 때, T초가 지난 후 방에 남아있는 미세먼지양을 구하시오.
 """
 def diffuse(board):
-    """원본 board를 읽어 새 격자에 확산 결과를 채워서 반환"""
-    drc = [(1, 0), (-1, 0), (0, 1), (0, -1)]
+    delta = [(1, 0), (-1, 0), (0, 1), (0, -1)]
     new = [[0] * C for _ in range(R)]
-    # 청정기 고정
+    # 공기청정기 고정
     new[upper][0] = -1
     new[lower][0] = -1
 
-    for i in range(R):
-        for j in range(C):
-            if board[i][j] > 0:
-                plus = board[i][j] // 5
+    for r in range(R):
+        for c in range(C):
+            if board[r][c] > 0:
+                plus = board[r][c] // 5
                 moved = 0
-                for di, dj in drc:
-                    ni, nj = i + di, j + dj
-                    if 0 <= ni < R and 0 <= nj < C and board[ni][nj] != -1:
-                        new[ni][nj] += plus
+                for dr, dc in delta:
+                    nr, nc = r + dr, c + dc
+                    if 0 <= nr < R and 0 <= nc < C and board[nr][nc] != -1:
+                        new[nr][nc] += plus
                         moved += 1
-                new[i][j] += board[i][j] - (plus * moved)
+                new[r][c] += board[r][c] - (plus * moved)
     return new
 
 def move_air(board):
     """공기청정기 바람 순환 (upper=반시계, lower=시계)"""
-    # 위쪽(반시계)
-    # 아래 -> 위
+
+    # 위쪽 순환: 오른 → 위 → 왼 → 아래 
+    # 아래 → 위 (왼쪽 세로줄)
     for r in range(upper - 1, 0, -1):
         board[r][0] = board[r - 1][0]
-    # 왼 -> 오른쪽 (맨 윗줄)
+    # 왼 → 오른쪽 (맨 윗줄)
     for c in range(0, C - 1):
         board[0][c] = board[0][c + 1]
-    # 위 -> 아래 (오른쪽 열)
+    # 위 → 아래 (오른쪽 세로줄)
     for r in range(0, upper):
         board[r][C - 1] = board[r + 1][C - 1]
-    # 오른 -> 왼쪽 (upper 행)
+    # 오른 → 왼쪽 (upper 행)
     for c in range(C - 1, 1, -1):
         board[upper][c] = board[upper][c - 1]
-    board[upper][1] = 0  # 흡입구 옆 칸 정화 공기 투입
+    board[upper][1] = 0  # 흡입구 옆 칸 정화 공기 주입
 
-    # 아래쪽(시계)
-    # 위 -> 아래
+    # 아래쪽 순환: 오른 → 아래 → 왼 → 위
+    # 위 → 아래 (왼쪽 세로줄)
     for r in range(lower + 1, R - 1):
         board[r][0] = board[r + 1][0]
-    # 왼 -> 오른쪽 (맨 아랫줄)
+    # 왼 → 오른쪽 (맨 아랫줄)
     for c in range(0, C - 1):
         board[R - 1][c] = board[R - 1][c + 1]
-    # 아래 -> 위 (오른쪽 열)
+    # 아래 → 위 (오른쪽 세로줄)
     for r in range(R - 1, lower, -1):
         board[r][C - 1] = board[r - 1][C - 1]
-    # 오른 -> 왼쪽 (lower 행)
+    # 오른 → 왼쪽 (lower 행)
     for c in range(C - 1, 1, -1):
         board[lower][c] = board[lower][c - 1]
-    board[lower][1] = 0  # 흡입구 옆 칸 정화 공기 투입
+    board[lower][1] = 0  # 흡입구 옆 칸 정화 공기 주입
 
-    # 청정기 위치 복원
+    # 공기청정기 위치 복원
     board[upper][0] = -1
     board[lower][0] = -1
 
@@ -94,15 +94,10 @@ for _ in range(T):
     house = diffuse(house)
     move_air(house)
 
-# 합계(청정기 -1 제외)
+# 합계(공기청정기 -1 제외)
 ans = 0
 for i in range(R):
     for j in range(C):
         if house[i][j] > 0:
             ans += house[i][j]
 print(ans)
-
-
-
-
-
