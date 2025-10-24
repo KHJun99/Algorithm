@@ -4,7 +4,7 @@
 
 ### 성능 요약
 
-메모리: 32412 KB, 시간: 32 ms
+메모리: 32412 KB, 시간: 36 ms
 
 ### 분류
 
@@ -12,7 +12,7 @@
 
 ### 제출 일자
 
-2025년 10월 17일 16:18:41
+2025년 10월 24일 14:37:39
 
 ### 문제 설명
 
@@ -21,7 +21,7 @@
 <p>
 	이 직사각형들이 차지하는 면적을 구하는 프로그램을 작성하시오.</p>
 <p>
-	<img alt="" src="" style="width: 294px; height: 227px; "></p>
+	<img alt="" src="https://www.acmicpc.net/upload/images/8vR77Ew2O2PqvZ1lER716.png" style="width: 294px; height: 227px; "></p>
 
 ### 입력 
 
