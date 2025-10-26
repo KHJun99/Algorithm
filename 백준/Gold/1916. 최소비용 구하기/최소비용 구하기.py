@@ -24,7 +24,7 @@ def dijkstra(n, graph, start):
         # 현재까지의 최소 거리 노드 꺼내기
         cur_dist, u = heappop(pq)
 
-        # 이미 더 잛은 경로가 있으면 스킵 (중복 방지)
+        # 이미 더 짧은 경로가 있으면 스킵 (중복 방지)
         if cur_dist > dist[u]:
             continue
 
@@ -74,5 +74,6 @@ dist, prev = dijkstra(N, graph, start)
 # 만약 경로를 구해야 한다면 아래 코드 주석 제거
 # path = reconstruct_path(prev, start, end)
 # print(path)
+
 
 print(dist[end])
