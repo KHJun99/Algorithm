@@ -11,8 +11,8 @@ from heapq import heappop, heappush
 def dijkstra(n, graph, start):
 
     # 최단거리 및 경로 추적용 배열 초기화
-    dist = [INF] * (N + 1)
-    prev = [-1] * (N + 1)
+    dist = [INF] * (n + 1)
+    prev = [-1] * (n + 1)
 
     # 시작 정점의 거리는 0
     dist[start] = 0
@@ -61,6 +61,7 @@ for _ in range(M):
     S, E, W = map(int, input().split())
     edges.append((S, E, W))
 
+# u : 시작 정점, v : 도착 정점, w : 가중치
 for u, v, w in edges:
     graph[u].append((v, w))
     # 만약 무향 그래프라면 아래 한 줄 추가
