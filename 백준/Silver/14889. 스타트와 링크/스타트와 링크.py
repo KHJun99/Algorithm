@@ -1,6 +1,3 @@
-import sys
-input = sys.stdin.readline
-
 def combination(arr, r):
     result = []
 
@@ -29,8 +26,10 @@ start_teams = combination(members, M)
 
 min_diff = float('inf')
 
-# 각 조합마다 능력치 차이 계산
-for start in start_teams:
+# 절반만 확인 (나머지는 대칭)
+for i in range(len(start_teams) // 2):
+    start = start_teams[i]
+
     # 링크 팀 구하기
     link = list(set(members) - set(start))
 
