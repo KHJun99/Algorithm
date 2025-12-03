@@ -32,7 +32,7 @@ results = []
 
 make_num(0, "")
 
-results.sort()
+# results.sort()
 
 print(results[-1])
 print(results[0])
