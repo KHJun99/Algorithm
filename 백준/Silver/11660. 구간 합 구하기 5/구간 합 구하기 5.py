@@ -1,3 +1,6 @@
+import sys
+input = sys.stdin.readline
+
 def Prefix_Sum():
     global dp
     
