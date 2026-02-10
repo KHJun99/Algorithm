@@ -1,7 +1,11 @@
-# try, except를 구분 하지 않을 시 런타임 에러 발생
-while(1):
+result = []
+
+while True:
     try:
         A, B = map(int, input().split())
-        print(A+B)
-    except:
+        result.append(A + B)
+    except (EOFError, ValueError):
         break
+
+for num in result:
+    print(num)
