@@ -1,8 +1,8 @@
-Test = int(input())
+T = int(input())
+result = []
+for _ in range(T):
+    A, B = map(int, input().split())
+    result.append(A + B)
 
-for i in range(0, Test, 1):
-    Num1, Num2 = map(int, input().split())
-    print(Num1 + Num2)
-
-
-
+for num in result:
+    print(num)
