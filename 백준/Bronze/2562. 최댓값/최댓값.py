@@ -1,9 +1,15 @@
-Array = []
+nums = []
 
-for i in range(9):
-    Array.append(int(input()))
+for _ in range(9):
+    num = int(input())
+    nums.append(num)
 
-max_index = Array.index(max(Array)) + 1
-
-print(max(Array))
-print(max_index)
+max_num = float('-inf')
+max_idx = 0
+for idx, num in enumerate(nums, start=1):
+    if num > max_num:
+        max_num = num
+        max_idx = idx
+    
+print(max_num)
+print(max_idx)
