@@ -1,5 +1,12 @@
+result = []
+
 while True:
-    a, b = map(int, input().split())
-    if a == 0 and b == 0:
+    A, B = map(int, input().split())
+
+    if A != 0 and B != 0:
+        result.append(A + B)
+    else:
         break
-    print(a + b)
+
+for num in result:
+    print(num)
