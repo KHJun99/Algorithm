@@ -1,5 +1,4 @@
-S = str(input())
-
+S = input()
 i = int(input())
 
-print(S[i-1])
+print(S[i - 1])
