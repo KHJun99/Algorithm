@@ -1,3 +1,3 @@
-N = input()
+alpha = input()
 
-print(ord(N))
+print(ord(alpha))
