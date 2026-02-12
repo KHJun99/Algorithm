@@ -1,12 +1,8 @@
 N = int(input())
+num = str(input())
 
-Num = int(input())
-Num_list = list(map(int, str(Num)))
+result = 0
+for i in range(N):
+    result += int(num[i])
 
-sum = 0
-
-for i in range(min(N, len(Num_list))):
-    sum += Num_list[i]
-
-print(sum)
-
+print(result)
