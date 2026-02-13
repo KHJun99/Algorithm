@@ -1,6 +1,3 @@
-Word = str(input())
+sentence = list(map(str, input().split()))
 
-Word_list = Word.split()
-
-count = len(Word_list)
-print(count)
+print(len(sentence))
