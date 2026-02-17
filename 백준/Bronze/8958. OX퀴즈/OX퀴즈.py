@@ -1,14 +1,19 @@
 T = int(input())
 
-for tc in range(T):
-    ox = input().strip()
+result = []
+for _ in range(T):
+    OX = input()
 
-    total = 0
     score = 0
-    for i in range(len(ox)):
-        if ox[i] == 'O':
+    point = 0
+    for ox in OX:
+        if ox == 'O':
             score += 1
-            total += score
+            point += score
         else:
             score = 0
-    print(total)
+    
+    result.append(point)
+
+for row in result:
+    print(row)
